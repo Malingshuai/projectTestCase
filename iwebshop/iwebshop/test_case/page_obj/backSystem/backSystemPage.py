@@ -4,7 +4,7 @@
 编写时间：2017-03-19
 """
 from selenium.webdriver.common.by import By
-from iwebshop.iwebshop.test_case.page_obj.backSystem.backHomePage import backhome
+from iwebshop.test_case.page_obj.backSystem.backHomePage import backhome
 from selenium.common.exceptions import NoSuchElementException
 
 class BackSystem(backhome):
@@ -182,7 +182,7 @@ class JiBenSheZhi(backhome):
         element = self.find_elemet(*name).txt
         return element
 
-    def input_titleqianzhui(self, shouyehouzhui):
+    def input_titleHouZhui(self, shouyehouzhui):
         """@shouyehouzhui : 首页title后缀"""
         name = (By.NAME, 'index_seo_title')
         input_name = str(shouyehouzhui)
@@ -190,7 +190,7 @@ class JiBenSheZhi(backhome):
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
 
-    def get_titleqianzhui_prompt(self):
+    def get_titleHouZhui_prompt(self):
         """获取商店商品货号前缀提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[11]/td/label')
         element = self.find_elemet(*name).txt
@@ -237,6 +237,28 @@ class JiBenSheZhi(backhome):
         self.driver.implicitly_wait(5)
         element = self.find_elemet(*name).text
         return element
+
+    def get_prompt_txt(self):
+        """循环获取提示信息，优先获取弹窗提示语，不存在时，获取各个输入框提示语"""
+        prompt = ''
+        try:
+            prompt = self.get_prompt()
+        except NoSuchElementException:
+            if self.get_shangdianName_prompt() != '':
+                prompt = self.get_shangdianName_prompt()
+            elif self.get_shangdiandizhi_prompt() != '':
+                prompt = self.get_shangdiandizhi_prompt()
+            elif self.get_QQ_prompt() != '':
+                prompt = self.get_QQ_prompt()
+            elif self.get_email_prompt():
+                prompt =self.get_email_prompt()
+            elif self.get_mobile_prompt() != '':
+                prompt = self.get_mobile_prompt()
+            elif self.get_phone_prompt() != '':
+                prompt = self.get_phone_prompt()
+            else:
+                prompt = self.get_jutidizhi_prompt()
+        return prompt
 
 class DaoHangSheZhi(backhome):
     """@实现导航设置"""

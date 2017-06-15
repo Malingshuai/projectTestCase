@@ -13,7 +13,7 @@
 编写时间：2017-03-19
 """
 from selenium.webdriver.common.by import By
-from iwebshop.iwebshop.test_case.page_obj.backSystem.backLoginPage import backlogin
+from iwebshop.test_case.page_obj.backSystem.backLoginPage import backlogin
 
 class backhome(backlogin):
     """提供后台首页title和导航功能：导航（商品、会员、订单、营销、统计、系统、工具、退出管理）"""

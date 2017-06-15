@@ -4,7 +4,7 @@
 编写时间：2016-10-15
 """
 from selenium.webdriver.common.by import By
-from iwebshop.iwebshop.test_case.page_obj.base import Page
+from iwebshop.test_case.page_obj.base import Page
 
 class backlogin(Page):
     """后台管理登录页面"""

@@ -7,9 +7,9 @@ import unittest
 # 将文件路径添加到运行环境变量，方便程序查找
 sys.path.append("../models")
 sys.path.append("../page_obj")
-from iwebshop.iwebshop.test_case.models import myunit, function
-from iwebshop.iwebshop.test_case.page_obj.backSystem.backLoginPage import backlogin
-from iwebshop.iwebshop.test_case.page_obj.backSystem.backHomePage import backhome
+from iwebshop.test_case.models import myunit, function
+from iwebshop.test_case.page_obj.backSystem.backLoginPage import backlogin
+from iwebshop.test_case.page_obj.backSystem.backHomePage import backhome
 
 class backLoginTest(myunit.MyTest):
     """iwebshop后台登录功能测试"""

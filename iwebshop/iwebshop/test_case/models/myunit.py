@@ -1,6 +1,7 @@
 # coding=utf-8
 """用例初始，setup() 和 tearDown()"""
-from driver import browser
+
+from iwebshop.test_case.models.driver import browser
 import unittest
 
 class MyTest(unittest.TestCase):
