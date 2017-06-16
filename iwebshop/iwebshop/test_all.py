@@ -2,7 +2,7 @@
 import sys
 sys.path.append('D:\\projectTestCase')
 import time, unittest
-from iwebshop.iwebshop.test_case.models.sendemil import send_mail
+from iwebshop.test_case.models.sendemil import send_mail
 from HTMLTestRunner import HTMLTestRunner
 import sys
 reload(sys)

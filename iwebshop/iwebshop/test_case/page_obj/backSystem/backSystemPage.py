@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 编写目的：实现后台系统管理的元素定位，
 编写时间：2017-03-19
@@ -63,7 +63,7 @@ class JiBenSheZhi(backhome):
     def get_shangdianName_prompt(self):
         """获取商店名称提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[1]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_shangdiandizhi(self, url):
@@ -78,7 +78,7 @@ class JiBenSheZhi(backhome):
     def get_shangdiandizhi_prompt(self):
         """获取商店URL地址提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[2]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_shangdianlogo(self, file):
@@ -92,7 +92,10 @@ class JiBenSheZhi(backhome):
         """输入联系人
         @turnName : 商店联系人"""
         name = (By.NAME, 'master')
-        input_name = turnName
+        if isinstance(turnName, unicode):
+             input_name = turnName
+        else:
+            input_name = unicode(turnName, "gbk")
         self.find_elemet(*name).clear()
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
@@ -109,7 +112,7 @@ class JiBenSheZhi(backhome):
     def get_QQ_prompt(self):
         """获取商店QQ提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[5]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_email(self, emails):
@@ -123,13 +126,16 @@ class JiBenSheZhi(backhome):
     def get_email_prompt(self):
         """获取商店email提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[6]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_mobile(self, mobile):
         """@mobile : 商店手机号"""
         name = (By.NAME, 'mobile')
-        input_name = str(mobile)
+        if type(mobile) == type('strings'):
+            input_name = unicode(mobile, "gbk")
+        else:
+            input_name = mobile
         self.find_elemet(*name).clear()
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
@@ -137,7 +143,7 @@ class JiBenSheZhi(backhome):
     def get_mobile_prompt(self):
         """获取手机提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[7]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_phone(self, phone):
@@ -151,13 +157,16 @@ class JiBenSheZhi(backhome):
     def get_phone_prompt(self):
         """获取固定电话提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[8]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_jutidizhi(self, address):
         """@address : 商店的具体地址"""
         name = (By.NAME, 'address')
-        input_name = str(address)
+        if type(address) == type('strings'):
+            input_name = unicode(address, "gbk")
+        else:
+            input_name = address
         self.find_elemet(*name).clear()
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
@@ -165,13 +174,16 @@ class JiBenSheZhi(backhome):
     def get_jutidizhi_prompt(self):
         """获取具体地址提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[9]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_huohaoqianzhui(self, shangpinqianzhui):
         """@shangpinqianzhui : 商店的商品货号前缀"""
         name = (By.NAME, 'goods_no_pre')
-        input_name = str(shangpinqianzhui)
+        if type(shangpinqianzhui) == type('strings'):
+            input_name = unicode(shangpinqianzhui, "gbk")
+        else:
+            input_name = shangpinqianzhui
         self.find_elemet(*name).clear()
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
@@ -179,13 +191,16 @@ class JiBenSheZhi(backhome):
     def get_huohaoqianzhui_prompt(self):
         """获取商店商品货号前缀提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[10]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_titleHouZhui(self, shouyehouzhui):
         """@shouyehouzhui : 首页title后缀"""
         name = (By.NAME, 'index_seo_title')
-        input_name = str(shouyehouzhui)
+        if type(shouyehouzhui) == type('strings'):
+            input_name = unicode(shouyehouzhui, "gbk")
+        else:
+            input_name = shouyehouzhui
         self.find_elemet(*name).clear()
         self.find_elemet(*name).click()
         self.find_elemet(*name).send_keys(input_name)
@@ -193,7 +208,7 @@ class JiBenSheZhi(backhome):
     def get_titleHouZhui_prompt(self):
         """获取商店商品货号前缀提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[11]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_keywords(self, keywords):
@@ -207,7 +222,7 @@ class JiBenSheZhi(backhome):
     def get_keywords_prompt(self):
         """获取首页keywords提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[12]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def input_description(self, description):
@@ -221,7 +236,7 @@ class JiBenSheZhi(backhome):
     def get_description_prompt(self):
         """获取首页description提示语"""
         name = (By.XPATH, '//*[@id="admin_right"]/div[2]/div/form[1]/table/tbody/tr[13]/td/label')
-        element = self.find_elemet(*name).txt
+        element = self.find_elemet(*name).text
         return element
 
     def click_submit(self):

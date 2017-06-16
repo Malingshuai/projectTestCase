@@ -6,11 +6,12 @@
 import sys
 sys.path.append("./models")
 sys.path.append("./page_obj")
-from iwebshop.iwebshop.test_case.models import myunit, function
+from iwebshop.test_case.models import myunit, function
 from ddt import ddt, data, unpack
-from iwebshop.iwebshop.test_case.models.GetData import get_csv_data
-from iwebshop.iwebshop.test_case.page_obj.frontSystem.zhucePage import zhuce
-from iwebshop.iwebshop.test_case.page_obj.frontSystem.loginPage import login
+from iwebshop.test_case.models.GetData import get_csv_data
+from iwebshop.test_case.page_obj.frontSystem.zhucePage import zhuce
+from iwebshop.test_case.page_obj.frontSystem.loginPage import login
+
 
 @ddt
 class frontZhuceTest(myunit.MyTest):
@@ -24,6 +25,7 @@ class frontZhuceTest(myunit.MyTest):
         self.driver.implicitly_wait(5)
         result = browes.get_zhuce_success()
         self.assertEqual(result, u"恭喜，操作成功！")
+
 
 @ddt
 class frontlogin(myunit.MyTest):

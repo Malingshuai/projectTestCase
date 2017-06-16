@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """测试目的：iwebshop后台登录场景测试用例
 编写时间：2016-10-15
 """
@@ -19,9 +19,11 @@ from selenium.common.exceptions import NoSuchElementException
 from ddt import ddt, unpack, data
 from iwebshop.test_case.models.GetData import get_csv_data
 
+
 @ddt
 class BackSystemWZSZ(myunit.MyTest):
     """iwebshop后系统设置中网站设置"""
+
     def setUp(self):
         self.driver = driver.browser()
         self.driver.implicitly_wait(10)
@@ -49,11 +51,10 @@ class BackSystemWZSZ(myunit.MyTest):
             jd.input_huohaoqianzhui(valus[10])
             jd.input_titleHouZhui(valus[11])
             jd.click_submit()
-            self.assertEqual(jd.get_prompt_txt(), valus[14], msg="测试不通过！")
+            self.assertEqual(jd.get_prompt_txt(), unicode(valus[14], "gbk"), msg=u"测试不通过！")
             function.insert_img(self.driver, u"登录名不能为空.jpg")
         except NoSuchElementException:
             print(u'元素获取失败！')
-
 
 
 if __name__ == '__main__':
@@ -64,4 +65,3 @@ if __name__ == '__main__':
         runner.run(suite)
     except:
         print "元素无法定位"
-
