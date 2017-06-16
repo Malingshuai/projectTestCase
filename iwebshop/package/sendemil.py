@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 mailto_list = ["531792735@qq.com"]
 mail_host = "smtp.exmail.qq.com"            # 设置服务器
 mail_user = "malingshuai@esuizhen.com"      # 用户名
-mail_pass = "531792735Ma"                   # 口令
+mail_pass = ""                   # 口令
 mail_postfix = "esuizhen.com"               # 发件箱的后缀
 
 

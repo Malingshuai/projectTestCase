@@ -25,15 +25,15 @@ def send_mail(file_new):
 
 # ==============查找测试报告目录，找到最新生成的测试报告文件==================
 
-def new_report(testreport):
+def new_report(testreport='D:\projectTestCase\iwebshop\iwebshop\report'):
     lists = os.listdir(testreport)
     lists.sort(key=lambda fn: os.path.getmtime(testreport + "\\" + fn))
     file_new = os.path.join(testreport,lists[-1])
     print file_new
     return file_new
 
-if __name__ = "__main__":
-    now = time.strftime("%Y-%m-%d %H_%M_%S)
+if __name__ == "__main__":
+    now = time.strftime("%Y-%m-%d %H_%M_%S")
     filename = "./bbs/report/" + now + "result.html"
     fp = open(filename, "wb")
     runner = HTMLTestRunner(stream=fp,

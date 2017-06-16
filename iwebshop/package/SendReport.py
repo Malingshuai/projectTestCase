@@ -32,8 +32,9 @@ def send_mail(to_list, sub, reportpath):  # to_list：收件人；sub：主题�
     except Exception, e:
         print str(e)
         return False
-		
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     if send_mail(mailto_list, "TestResult", '../2016-07-07-13_29_15HTMLtemplate.html'):
         print u"发送成功"
     else:

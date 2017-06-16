@@ -1,5 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
+"""移动端测试用例样板
+"""
+
 
 import unittest
 from appium import webdriver

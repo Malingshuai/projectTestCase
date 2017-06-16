@@ -7,3 +7,5 @@
 4.sendemil.py ：发送Emil，参考模板。
 
 5.SendReport.py ：发送Emil，参考模板。
+
+6.scenarios.py：移动端测试用例样板（appium）。
